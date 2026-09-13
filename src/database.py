@@ -1,13 +1,18 @@
+import os
 import sqlite3
 from pathlib import Path
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_DB_PATH = PROJECT_ROOT / "database" / "ecommerce.db"
 
-DB_PATH = Path(__file__).parent.parent / "database" / "ecommerce.db"
 
+def get_connection(db_path=None):
+    selected_path = Path(
+        db_path or os.getenv("TEXT_TO_SQL_DB_PATH", DEFAULT_DB_PATH)
+    )
 
-def get_connection() -> sqlite3.Connection:
     connection = sqlite3.connect(
-        f"file:{DB_PATH}?mode=ro",
+        f"file:{selected_path}?mode=ro",
         uri=True,
     )
 

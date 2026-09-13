@@ -2,3 +2,12 @@
 __pycache__/
 .pytest_cache/
 .env
+benchmark_data/
+
+benchmark_data/
+
+benchmark_data/
+benchmark/spider/
+benchmark/spider/
+benchmark/spider/
+benchmark/spider/
